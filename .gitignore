@@ -4,3 +4,6 @@ target
 .project
 .settings
 clean*install.log
+*.ipr
+*.iml
+*.iws
