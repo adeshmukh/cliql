@@ -1,4 +1,4 @@
-package com.github.adeshmukh.clisql.cli;
+package com.github.adeshmukh.cliql.cli;
 
 import java.io.IOException;
 import java.io.InputStreamReader;

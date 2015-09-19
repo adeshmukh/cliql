@@ -1,7 +1,7 @@
-package com.github.adeshmukh.clisql.cli;
+package com.github.adeshmukh.cliql.cli;
 
-import static com.github.adeshmukh.clisql.cli.HeaderOption.LETTER;
-import static com.github.adeshmukh.clisql.cli.Headers.letters;
+import static com.github.adeshmukh.cliql.cli.HeaderOption.LETTER;
+import static com.github.adeshmukh.cliql.cli.Headers.letters;
 import static java.util.Arrays.asList;
 
 import java.io.IOException;

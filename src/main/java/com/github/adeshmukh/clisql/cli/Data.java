@@ -1,4 +1,4 @@
-package com.github.adeshmukh.clisql.cli;
+package com.github.adeshmukh.cliql.cli;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;

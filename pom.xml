@@ -1,12 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.adeshmukh.clisql</groupId>
-  <artifactId>clisql</artifactId>
+
+  <groupId>com.github.adeshmukh.cliql</groupId>
+  <artifactId>cliql</artifactId>
   <version>0.0.5-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>clisql</name>
+  <name>cliql</name>
   <description>SQL interface for dealing with commands that produce tabular output</description>
+
   <developers>
     <developer>
       <id>adeshmukh</id>
@@ -18,10 +20,12 @@
       <timezone>-8</timezone>
     </developer>
   </developers>
+
   <scm>
     <connection>scm:git:git@github.com/adeshmukh/${project.name}.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/adeshmukh/${project.name}.git</developerConnection>
   </scm>
+
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -29,53 +33,68 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+
   <distributionManagement>
     <site>
       <id>github-pages</id>
       <url>gitsite:git@github.com/adeshmukh/${project.name}.git</url>
     </site>
   </distributionManagement>
+
+  <properties>
+    <guava.version>18.0</guava.version>
+    <logback.version>1.1.3</logback.version>
+    <args4j.version>2.32</args4j.version>
+    <hsqldb.version>2.3.3</hsqldb.version>
+    <jdbi.version>2.63.1</jdbi.version>
+    <jdk.version>1.8</jdk.version>
+    <plugin.compiler.version>3.0</plugin.compiler.version>
+    <plugin.shade.version>2.4.1</plugin.shade.version>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>11.0.2</version>
+      <version>${guava.version}</version>
     </dependency>
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.0.1</version>
+      <version>${logback.version}</version>
     </dependency>
     <dependency>
       <groupId>args4j</groupId>
       <artifactId>args4j</artifactId>
-      <version>2.0.16</version>
+      <version>${args4j.version}</version>
     </dependency>
     <dependency>
       <groupId>org.hsqldb</groupId>
       <artifactId>hsqldb</artifactId>
-      <version>2.2.8</version>
+      <version>${hsqldb.version}</version>
     </dependency>
     <dependency>
       <groupId>org.jdbi</groupId>
       <artifactId>jdbi</artifactId>
-      <version>2.17</version>
+      <version>${jdbi.version}</version>
     </dependency>
   </dependencies>
+
   <build>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>${plugin.compiler.version}</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>${jdk.version}</source>
+          <target>${jdk.version}</target>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
-        <version>1.5</version>
+        <version>${plugin.shade.version}</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -85,7 +104,7 @@
             <configuration>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>com.github.adeshmukh.clisql.cli.Main</mainClass>
+                  <mainClass>com.github.adeshmukh.cliql.cli.Main</mainClass>
                 </transformer>
               </transformers>
             </configuration>
