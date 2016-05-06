@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Map;
 
-import org.kohsuke.args4j.CmdLineException;
-import org.kohsuke.args4j.CmdLineParser;
-
 import com.google.common.base.Function;
 import com.google.common.collect.Range;
 import com.google.common.io.CharStreams;
+
+import org.kohsuke.args4j.CmdLineException;
+import org.kohsuke.args4j.CmdLineParser;
 
 public class Main {
     private static final Options OPT = new Options();

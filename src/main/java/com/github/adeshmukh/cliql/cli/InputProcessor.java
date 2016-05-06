@@ -1,23 +1,23 @@
 package com.github.adeshmukh.cliql.cli;
 
-import static com.github.adeshmukh.cliql.cli.HeaderOption.LETTER;
-import static com.github.adeshmukh.cliql.cli.Headers.letters;
-import static java.util.Arrays.asList;
-
 import java.io.IOException;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.google.common.base.MoreObjects;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Range;
+import com.google.common.io.LineProcessor;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.base.Objects;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Range;
-import com.google.common.collect.Ranges;
-import com.google.common.io.LineProcessor;
+import static java.util.Arrays.asList;
+
+import static com.github.adeshmukh.cliql.cli.HeaderOption.LETTER;
+import static com.github.adeshmukh.cliql.cli.Headers.letters;
 
 public class InputProcessor implements LineProcessor<Data> {
 
@@ -34,8 +34,8 @@ public class InputProcessor implements LineProcessor<Data> {
     private int[] maxFieldLengths;
 
     public InputProcessor(Range<Integer> range, String delimiter, HeaderOption headerOption) {
-        this.range = Objects.firstNonNull(range, Ranges.greaterThan(0));
-        this.delimiter = Objects.firstNonNull(delimiter, "\\s+");
+        this.range = MoreObjects.firstNonNull(range, Range.greaterThan(0));
+        this.delimiter = MoreObjects.firstNonNull(delimiter, "\\s+");
         this.headerOption = headerOption;
         if (this.range.hasUpperBound()) {
             this.rangeUpperEndpoint = this.range.upperEndpoint();

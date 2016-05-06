@@ -1,8 +1,8 @@
 package com.github.adeshmukh.cliql.cli;
 
-import org.kohsuke.args4j.Option;
-
 import com.google.common.collect.Range;
+
+import org.kohsuke.args4j.Option;
 
 public class Options {
 
@@ -29,7 +29,7 @@ public class Options {
 
     @Option(name = "-e", aliases = "--headerOption", metaVar = "HEADER"
             , required = false
-            , usage = "HeaderOption determination. Valid values are: line => first line of data, letter => generated names as A, B, C... AA, AB etc."
+            , usage = "Valid values are: line => first line of data, letter => generated names as A, B, C... AA, AB etc."
             , handler = HeaderInferenceOptionHandler.class)
     private HeaderOption headerOption = HeaderOption.LETTER;
 
